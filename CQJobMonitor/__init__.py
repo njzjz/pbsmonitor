@@ -30,6 +30,7 @@ class CQJobMonitor():
             timer=Timer(self.timeinterval,self.sendstate)
             timer.start()
             timer.join()
+        print("Exit per signal.")
 
-if __name__='__main__':
+if __name__=='__main__':
     CQJobMonitor().loopmonitor()

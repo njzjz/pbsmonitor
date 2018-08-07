@@ -1,6 +1,6 @@
 from setuptools import setup
 setup(name='CQJobMonitor',
-      version='1.0.0',
+      version='1.0.1',
       description='A PBS job monitor powered by CoolQ.',
       keywords="coolq",
       url='https://github.com/njzjz/CQJobMonitor',
