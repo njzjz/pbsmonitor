@@ -5,7 +5,7 @@ A PBS job monitor powered by CoolQ, which can send states of Portable Batch Syst
 
 **Author**: Jinzhe Zeng
 
-**Email**: njzjz@qq.com 10154601140@stu.ecnu.edu.cn
+**Email**: jzzeng@stu.ecnu.edu.cn
 
 ## Installation
 ### With pip
