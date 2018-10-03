@@ -5,7 +5,7 @@ import time
 from threading import Timer
 
 class CQJobMonitor():
-    def __init__(self,command="qstat",cqroot='http://219.228.63.56:5700/',group_id=312676525,keywords=['jzzeng','lqcao','jxiao'],timeinterval=300):
+    def __init__(self,command="qstat",cqroot='http://219.228.63.56:5700/',group_id=312676525,keywords=[''],caption=None,timeinterval=300):
         self.tip="JobMonitor"
         print(self.tip)
         self.command=command
@@ -13,6 +13,7 @@ class CQJobMonitor():
         self.keywords=keywords
         self.bot = CQHttp(api_root=cqroot)
         self.timeinterval=timeinterval
+        self.caption=caption
 
     def jobstate(self):
         states=sp.check_output(self.command.split()).decode('utf-8').split("\n")
@@ -22,6 +23,8 @@ class CQJobMonitor():
     def sendstate(self):
         localtime = time.asctime(time.localtime(time.time()))
         message=localtime+"\n"+self.tip+"\n"
+        if self.caption:
+            message+=self.caption+"\n"
         message+="\n".join(self.jobstate())
         self.bot.send_group_msg(group_id=self.group_id,message=message)
 
