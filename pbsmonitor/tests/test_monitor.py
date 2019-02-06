@@ -12,9 +12,4 @@ class Test_monitor:
 
         bots = Bots()
         bots.append(qqbot(cqroot=httpserver.url, group_id=123456))
-        monitor = Monitor(bots=bots, command='uname -a', timeinterval=1)
-
-        timer = Timer(5, monitor.pause)
-        timer.start()
-        monitor.loopmonitor()
-        timer.join()
+        Monitor(bots=bots, command='uname -a', timeinterval=1)._sendstate()
