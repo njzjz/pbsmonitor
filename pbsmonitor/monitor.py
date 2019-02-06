@@ -36,6 +36,7 @@ class Monitor:
         self.bots.sendmessage('\n'.join(messages))
 
     def loopmonitor(self):
+        self._sendstate()
         while not os.path.exists("pause") or not self._pause:
             timer = Timer(self.timeinterval, self._sendstate)
             timer.start()
