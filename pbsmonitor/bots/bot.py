@@ -25,7 +25,7 @@ class Bots:
     def sendmessage(self, message):
         threads = []
         for bot in self._bots:
-            thread = threading.Thread(bot.sendmessage, message)
+            thread = threading.Thread(target=bot.sendmessage, args=(message,))
             thread.start()
             threads.append(thread)
         for thread in threads:
