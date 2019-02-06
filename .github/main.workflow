@@ -16,7 +16,7 @@ action "sdist" {
 
 action "upload" {
   uses = "ross/python-actions/twine@627646f618c3c572358bc7bc4fc413beb65fa50f"
-  args = "upload ./dist/ecnunetwork-*.tar.gz"
+  args = "upload ./dist/*.tar.gz"
   secrets = [
     "TWINE_USERNAME",
     "TWINE_PASSWORD",
