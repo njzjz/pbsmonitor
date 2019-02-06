@@ -14,12 +14,12 @@ def _commandline():
                         help='Keywords for monitoring, e.g. jzzeng',
                         nargs='*', required=True)
     parser.add_argument('--title', help='Title, e.g. GPU1')
-    parser.add_argument('-t', '--time', help='Time interval', default=300)
+    parser.add_argument('-t', '--time', help='Time interval', default=300, type=int)
 
     # QQ
     parser.add_argument(
         '-r', '--cqroot', help='CoolQ HTTP Server Url, e.g. 192.168.1.1:6000')
-    parser.add_argument('-g', '--groupid', help='QQ Group ID, e.g. 123456789')
+    parser.add_argument('-g', '--groupid', help='QQ Group ID, e.g. 123456789', type=int)
 
     args = parser.parse_args()
 
