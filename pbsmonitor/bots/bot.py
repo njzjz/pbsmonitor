@@ -1,6 +1,6 @@
 '''Bot.'''
 from abc import ABCMeta, abstractmethod
-import thread
+import threading
 
 
 class Bot(metaclass=ABCMeta):
@@ -12,7 +12,7 @@ class Bot(metaclass=ABCMeta):
 
 
 class Bots:
-    
+
     def __init__(self, bots=None):
         self._bots = bots if bots else []
 
@@ -23,8 +23,13 @@ class Bots:
             raise TypeError('Should be a Bot!')
 
     def sendmessage(self, message):
+        threads = []
         for bot in self._bots:
-            thread.start_new_thread(bot.sendmessage, message)
-    
+            thread = threading.Thread(bot.sendmessage, message)
+            thread.start()
+            threads.append(thread)
+        for thread in threads:
+            thread.join()
+
     def __len__(self):
         return len(self._bots)
