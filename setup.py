@@ -11,7 +11,7 @@ if __name__ == '__main__':
         name='pbsmonitor',
         description='A PBS job monitor powered by CoolQ.',
         keywords="ecnu", url='https://github.com/njzjz/pbsmonitor',
-        author='Jinzhe Zeng', author_email='jzzeng@stu.ecnu.edu.cn',
+        author='Jinzhe Zeng', author_email='jinzhe.zeng@ustc.edu.cn',
         packages=find_packages(),
         install_requires=['cqhttp'],
         entry_points={
